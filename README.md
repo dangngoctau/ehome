@@ -1,2 +1,2 @@
 # ehome
-Simple my home automation solution using C#
+Simple home automation system using C#
