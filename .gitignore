@@ -1,0 +1,14 @@
+﻿/*.suo
+.vs/
+bin/
+obj/
+/*.user
+_Resharper*
+.hgtags
+NuGet.exe
+*.user
+*.nupkg
+.docstats
+*.ide/
+*.lock.json
+*.coverage
