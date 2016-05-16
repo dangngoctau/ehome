@@ -1,0 +1,12 @@
+[ESP8266-1] <--MQTT, HTTP--> [Server]
+[ESP8266-2] <--MQTT, HTTP--> [Server]
+[ESP8266-3] <--MQTT, HTTP--> [Server]
+
+Drivers
+Id
+Name
+Code
+Type
+Status
+
+DriverNodes
