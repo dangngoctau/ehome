@@ -3,16 +3,19 @@
 --------------
 Request turn on the Light 1:
 
-Console publish command(1): topic: "gateway", message: byte[2] {device:1, state:1}
+Console publishs command(1): topic: "changestate", message: byte[2] {device:1, state:1}
 
-Gateway subsrible topic "gateway"
+Gateway subsribes topic "changestate"
 => receive message(1), find module consists of device value 1, result: "esp-01"
 => publish command(2): topic: "esp-01", message: byte[2] {device:1, state:1}
 => update device state to database
-=> 
+=> publish command(3): topic "statechanged", message: byte[2] {device 1, state: 1}
 
-ESP-01 subscrible event/topic "esp-1"
+ESP-01 subscribles event/topic "esp-1"
 => receive message(2), set high value for light 1
+
+Consoles subscribe topic "statechanged"
+=> receive message(3), update state of light 1.
 ---------------
 
 
