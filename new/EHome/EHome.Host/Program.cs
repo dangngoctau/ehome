@@ -1,4 +1,7 @@
-﻿using System;
+﻿using EHome.Common;
+using EHome.Infrastructure;
+using Nancy.TinyIoc;
+using System;
 using System.Configuration;
 
 namespace EHome.Host
@@ -11,6 +14,10 @@ namespace EHome.Host
             var host = new Nancy.Hosting.Self.NancyHost(new Uri(ConfigurationManager.AppSettings["HostUri"]));
             host.Start();
             Console.WriteLine("started!");
+
+            var container = TinyIoCContainer.Current;
+            container.Register<IAppSettings, AppSettings>().AsSingleton();
+            container.Register<IGateway, MqttGateway.MqttGateway>().AsSingleton();
 
             // todo: start mqtt gateway
             Console.WriteLine("press any key to exit");

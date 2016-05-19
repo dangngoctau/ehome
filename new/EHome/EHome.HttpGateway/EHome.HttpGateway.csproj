@@ -54,6 +54,12 @@
   <ItemGroup>
     <Folder Include="ViewModels\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EHome.Infrastructure\EHome.Infrastructure.csproj">
+      <Project>{fb2cda5e-4885-4539-84b3-9ad8d5fada2f}</Project>
+      <Name>EHome.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -45,11 +45,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="MqttGateway.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EHome.Common\EHome.Common.csproj">
+      <Project>{a622981a-6897-4a75-89d3-fdeac5faa9e9}</Project>
+      <Name>EHome.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EHome.Infrastructure\EHome.Infrastructure.csproj">
+      <Project>{fb2cda5e-4885-4539-84b3-9ad8d5fada2f}</Project>
+      <Name>EHome.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EHome.Storage\EHome.Storage.csproj">
+      <Project>{34634c72-b258-4fc0-9f57-c03283e64154}</Project>
+      <Name>EHome.Storage</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
