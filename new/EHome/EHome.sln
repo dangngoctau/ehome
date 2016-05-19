@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHome.Common", "EHome.Common\EHome.Common.csproj", "{A622981A-6897-4A75-89D3-FDEAC5FAA9E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHome.Storage", "EHome.Storage\EHome.Storage.csproj", "{34634C72-B258-4FC0-9F57-C03283E64154}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHome.Host", "EHome.Host\EHome.Host.csproj", "{4D478062-778E-4764-82FF-9F58A90EFB8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHome.Infrastructure", "EHome.Infrastructure\EHome.Infrastructure.csproj", "{FB2CDA5E-4885-4539-84B3-9AD8D5FADA2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHome.HttpGateway", "EHome.HttpGateway\EHome.HttpGateway.csproj", "{E3DE3BC1-8339-4A3F-BDA6-971626D2DB01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EHome.MqttGateway", "EHome.MqttGateway\EHome.MqttGateway.csproj", "{AD5E99D0-5450-4B57-A7A8-D988758B9241}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A622981A-6897-4A75-89D3-FDEAC5FAA9E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A622981A-6897-4A75-89D3-FDEAC5FAA9E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A622981A-6897-4A75-89D3-FDEAC5FAA9E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A622981A-6897-4A75-89D3-FDEAC5FAA9E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34634C72-B258-4FC0-9F57-C03283E64154}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34634C72-B258-4FC0-9F57-C03283E64154}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34634C72-B258-4FC0-9F57-C03283E64154}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34634C72-B258-4FC0-9F57-C03283E64154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D478062-778E-4764-82FF-9F58A90EFB8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D478062-778E-4764-82FF-9F58A90EFB8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D478062-778E-4764-82FF-9F58A90EFB8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D478062-778E-4764-82FF-9F58A90EFB8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB2CDA5E-4885-4539-84B3-9AD8D5FADA2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB2CDA5E-4885-4539-84B3-9AD8D5FADA2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB2CDA5E-4885-4539-84B3-9AD8D5FADA2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB2CDA5E-4885-4539-84B3-9AD8D5FADA2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3DE3BC1-8339-4A3F-BDA6-971626D2DB01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3DE3BC1-8339-4A3F-BDA6-971626D2DB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3DE3BC1-8339-4A3F-BDA6-971626D2DB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3DE3BC1-8339-4A3F-BDA6-971626D2DB01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD5E99D0-5450-4B57-A7A8-D988758B9241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD5E99D0-5450-4B57-A7A8-D988758B9241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD5E99D0-5450-4B57-A7A8-D988758B9241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD5E99D0-5450-4B57-A7A8-D988758B9241}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -18,4 +18,11 @@ Consoles subscribe topic "statechanged"
 => receive message(3), update state of light 1.
 ---------------
 
-
+EHome.Common
+EHome.MQTTGateway
+EHome.HTTPGateway
+EHome.Host
+EHome.Storage
+EHome.Console
+--
+Nancy, mono sqlite,  dapper, m2mqtt
