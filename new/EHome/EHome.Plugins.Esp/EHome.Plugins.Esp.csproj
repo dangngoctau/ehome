@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FB2CDA5E-4885-4539-84B3-9AD8D5FADA2F}</ProjectGuid>
+    <ProjectGuid>{5D958C5B-2290-440A-B600-C31C73F1CA41}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EHome.Infrastructure</RootNamespace>
-    <AssemblyName>EHome.Infrastructure</AssemblyName>
+    <RootNamespace>EHome.Plugins.Esp</RootNamespace>
+    <AssemblyName>EHome.Plugins.Esp</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,11 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EHomeRequest.cs" />
-    <Compile Include="IGateway.cs" />
-    <Compile Include="IPlugin.cs" />
-    <Compile Include="IRequest.cs" />
+    <Compile Include="EspPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EHome.Infrastructure\EHome.Infrastructure.csproj">
+      <Project>{fb2cda5e-4885-4539-84b3-9ad8d5fada2f}</Project>
+      <Name>EHome.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
