@@ -63,10 +63,6 @@
       <Project>{a622981a-6897-4a75-89d3-fdeac5faa9e9}</Project>
       <Name>EHome.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EHome.HttpGateway\EHome.HttpGateway.csproj">
-      <Project>{e3de3bc1-8339-4a3f-bda6-971626d2db01}</Project>
-      <Name>EHome.HttpGateway</Name>
-    </ProjectReference>
     <ProjectReference Include="..\EHome.Infrastructure\EHome.Infrastructure.csproj">
       <Project>{fb2cda5e-4885-4539-84b3-9ad8d5fada2f}</Project>
       <Name>EHome.Infrastructure</Name>
@@ -74,6 +70,10 @@
     <ProjectReference Include="..\EHome.MqttGateway\EHome.MqttGateway.csproj">
       <Project>{ad5e99d0-5450-4b57-a7a8-d988758b9241}</Project>
       <Name>EHome.MqttGateway</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EHome.Plugins.Esp\EHome.Plugins.Esp.csproj">
+      <Project>{5d958c5b-2290-440a-b600-c31c73f1ca41}</Project>
+      <Name>EHome.Plugins.Esp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

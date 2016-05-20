@@ -9,11 +9,11 @@ namespace EHome.MqttGateway
     public class MqttGateway : IGateway
     {
         private readonly IAppSettings _appSettings;
-        private readonly IReadOnlyCollection<IPlugin> _plugins;
+        private readonly IEnumerable<IPlugin> _plugins;
 
         private MqttClient _client;
 
-        public MqttGateway(IAppSettings appSettings, IReadOnlyCollection<IPlugin> plugins)
+        public MqttGateway(IAppSettings appSettings, IEnumerable<IPlugin> plugins)
         {
             _appSettings = appSettings;
             _client = new MqttClient(_appSettings.BrokerAddress);
@@ -23,11 +23,12 @@ namespace EHome.MqttGateway
         public void Start()
         {
             // todo: move to config.
-            _client.MqttMsgPublishReceived += _client_MqttMsgPublishReceived;
+            _client.MqttMsgPublishReceived += ClientMqttMsgPublishReceived;
             _client.Connect("gateway");
+            _client.Subscribe(new[] { "changestate" }, new[] { (byte)1 });
         }
 
-        private void _client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
+        private void ClientMqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
         {
             //    Request: { Channel | Driver}/{ module - code}/{ DeviceId}/{ State} | topic: "changestate", msg: [1byte][1byte][8bytes][1byte]
             //-- -
@@ -41,10 +42,10 @@ namespace EHome.MqttGateway
                 // get channel, moule code.....
                 // c
             }
-            var request = new EHomeRequest { Topic = e.Topic, Message = e.Message };
+            var request = new EHomeRequest { PluginId = 1, Topic = e.Topic, Message = e.Message };
             foreach (var plugin in _plugins)
             {
-                if (plugin.DriverType == "//todo:")
+                if (plugin.Id == request.PluginId)
                 {
                     plugin.Execute(request);
                 }

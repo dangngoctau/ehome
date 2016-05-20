@@ -8,7 +8,7 @@ namespace EHome.Infrastructure
 {
     public interface IPlugin
     {
-        string DriverType { get; }
+        int Id { get; }
 
         void Execute(IRequest request);
     }

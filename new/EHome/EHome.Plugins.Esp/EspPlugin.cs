@@ -4,17 +4,17 @@ namespace EHome.Plugins.Esp
 {
     public class EspPlugin : IPlugin
     {
-        public string DriverType
+        public int Id
         {
             get
             {
-                return "Esp";
+                return 1;
             }
         }
 
         public void Execute(IRequest request)
         {
-
+            var i = request;
         }
     }
 }

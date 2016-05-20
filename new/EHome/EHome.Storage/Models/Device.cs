@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EHome.Storage
+namespace EHome.Storage.Models
 {
-    public class Class1
+    public class Device
     {
+        public int Id { get; set; }
     }
 }
