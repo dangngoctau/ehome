@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AD5E99D0-5450-4B57-A7A8-D988758B9241}</ProjectGuid>
+    <ProjectGuid>{025CAB23-9CCC-4953-B6FC-9A9A6512BEEB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EHome.MqttGateway</RootNamespace>
-    <AssemblyName>EHome.MqttGateway</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>EHome.Core</RootNamespace>
+    <AssemblyName>EHome.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -45,7 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MqttGateway.cs" />
+    <Compile Include="EventBus.cs" />
+    <Compile Include="HomeControlEventArgs.cs" />
+    <Compile Include="IEventBus.cs" />
+    <Compile Include="IPlugin.cs" />
+    <Compile Include="IPluginHandler.cs" />
+    <Compile Include="IRequest.cs" />
+    <Compile Include="PluginHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,14 +61,6 @@
     <ProjectReference Include="..\EHome.Common\EHome.Common.csproj">
       <Project>{a622981a-6897-4a75-89d3-fdeac5faa9e9}</Project>
       <Name>EHome.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EHome.Infrastructure\EHome.Infrastructure.csproj">
-      <Project>{fb2cda5e-4885-4539-84b3-9ad8d5fada2f}</Project>
-      <Name>EHome.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EHome.Storage\EHome.Storage.csproj">
-      <Project>{34634c72-b258-4fc0-9f57-c03283e64154}</Project>
-      <Name>EHome.Storage</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

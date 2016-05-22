@@ -2,22 +2,27 @@
 using EHome.Storage.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
+using Mono.Data.Sqlite;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EHome.Storage
 {
     public class EHomeService : IEHomeService
     {
+        private readonly IDbConnectionSelection _dbConnectionSelection;
+
+        public EHomeService(IDbConnectionSelection dbConnectionSelection)
+        {
+            _dbConnectionSelection = dbConnectionSelection;
+        }
+
         public IEnumerable<Device> GetDevices()
         {
-            using (var connection = new SQLiteConnection("Data Source=" + Environment.CurrentDirectory + "\\Test.sqlite"))
+            using (var connection = _dbConnectionSelection.GetDbConnection("EHome.sqlite"))
             {
                 connection.Open();
-                var result = connection.Query<Device>(@"select * from devices");
-
+                var result = connection.Query<Device>(@"select * from Devices");
+                Console.WriteLine("total devices is " + result.Count());
                 return result;
             }
         }

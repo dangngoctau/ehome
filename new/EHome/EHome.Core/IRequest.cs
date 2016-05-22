@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EHome.Infrastructure
+namespace EHome.Core
 {
-    public interface IPlugin
+    public interface IRequest
     {
-        int Id { get; }
-
-        void Execute(IRequest request);
     }
 }

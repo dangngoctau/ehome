@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EHome.Plugins.Esp</RootNamespace>
     <AssemblyName>EHome.Plugins.Esp</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,9 +45,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EHome.Infrastructure\EHome.Infrastructure.csproj">
-      <Project>{fb2cda5e-4885-4539-84b3-9ad8d5fada2f}</Project>
-      <Name>EHome.Infrastructure</Name>
+    <ProjectReference Include="..\EHome.Core\EHome.Core.csproj">
+      <Project>{025cab23-9ccc-4953-b6fc-9a9a6512beeb}</Project>
+      <Name>EHome.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EHome.Storage\EHome.Storage.csproj">
+      <Project>{34634c72-b258-4fc0-9f57-c03283e64154}</Project>
+      <Name>EHome.Storage</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

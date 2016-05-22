@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EHome.Infrastructure")]
+[assembly: AssemblyTitle("EHome.Test.PublisherForm")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EHome.Infrastructure")]
+[assembly: AssemblyProduct("EHome.Test.PublisherForm")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fb2cda5e-4885-4539-84b3-9ad8d5fada2f")]
+[assembly: Guid("103f7e54-d0ae-418f-a4fe-c614212dba9b")]
 
 // Version information for an assembly consists of the following four values:
 //

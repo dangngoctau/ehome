@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EHome.Infrastructure
+namespace EHome.Core
 {
-    public interface IRequest
+    public interface IPlugin
     {
-        byte[] Message { get; set; }
-        string Topic { get; set; }
+        void Init();
     }
 }
