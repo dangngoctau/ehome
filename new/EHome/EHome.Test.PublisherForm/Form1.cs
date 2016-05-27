@@ -28,10 +28,21 @@ namespace EHome.Test.PublisherForm
 
         private void btnPublish_Click(object sender, EventArgs e)
         {
-            var msg = txtMsg.Text;
-            var channelId = msg.Substring(0,2).ToString();
-            var bytes = UTF8Encoding.UTF8.GetBytes(msg);
-            _client.Publish(txtTopic.Text, bytes);
+            //var msg = txtMsg.Text;
+            //var channelId = msg.Substring(0,2).ToString();
+            //var bytes = UTF8Encoding.UTF8.GetBytes(msg);
+            var msg = new byte[2];
+            msg[0] = 1;
+            msg[1] = 1;
+            _client.Publish(txtTopic.Text, msg);
+        }
+
+        private void btnOff_Click(object sender, EventArgs e)
+        {
+            var msg = new byte[2];
+            msg[0] = 1;
+            msg[1] = 0;
+            _client.Publish(txtTopic.Text, msg);
         }
     }
 }

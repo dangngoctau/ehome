@@ -33,6 +33,7 @@
             this.txtTopic = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnPublish = new System.Windows.Forms.Button();
+            this.btnOff = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -75,15 +76,26 @@
             this.btnPublish.Name = "btnPublish";
             this.btnPublish.Size = new System.Drawing.Size(75, 23);
             this.btnPublish.TabIndex = 4;
-            this.btnPublish.Text = "Publish";
+            this.btnPublish.Text = "On";
             this.btnPublish.UseVisualStyleBackColor = true;
             this.btnPublish.Click += new System.EventHandler(this.btnPublish_Click);
+            // 
+            // btnOff
+            // 
+            this.btnOff.Location = new System.Drawing.Point(577, 223);
+            this.btnOff.Name = "btnOff";
+            this.btnOff.Size = new System.Drawing.Size(75, 23);
+            this.btnOff.TabIndex = 4;
+            this.btnOff.Text = "Off";
+            this.btnOff.UseVisualStyleBackColor = true;
+            this.btnOff.Click += new System.EventHandler(this.btnOff_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(829, 301);
+            this.Controls.Add(this.btnOff);
             this.Controls.Add(this.btnPublish);
             this.Controls.Add(this.txtTopic);
             this.Controls.Add(this.label2);
@@ -104,6 +116,7 @@
         private System.Windows.Forms.TextBox txtTopic;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnPublish;
+        private System.Windows.Forms.Button btnOff;
     }
 }
 
