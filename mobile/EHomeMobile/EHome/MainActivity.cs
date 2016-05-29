@@ -1,15 +1,11 @@
 ﻿using System;
 using Android.App;
-using Android.Content;
-using Android.Runtime;
-using Android.Views;
 using Android.Widget;
 using Android.OS;
 using uPLibrary.Networking.M2Mqtt;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using EHome.Fragments;
+using RestSharp;
 
 namespace EHome
 {
@@ -26,23 +22,17 @@ namespace EHome
 
         public async Task<Domain> GetIpAddressInfo()
         {
-            using (var client = new HttpClient())
+            var client = new RestClient("http://dns.xedap629.vn");
+            var request = new RestRequest(string.Format("domain/{0}/ip", "yennehouse.com"));
+            request.AddHeader("Content-Type", "application/json");
+            var result = await client.ExecuteGetTaskAsync<Domain>(request);
+
+            if (result.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                try
-                {
-                    client.BaseAddress = new Uri("http://dns.xedap629.vn");
-                    client.DefaultRequestHeaders.Accept.Clear();
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                    HttpResponseMessage response = await client.GetAsync(string.Format("domain/{0}/ip", "yennehouse.com"));
-                    response.EnsureSuccessStatusCode();
-                    var domainJson = response.Content.ReadAsStringAsync().Result;
-                    return JsonConvert.DeserializeObject<Domain>(domainJson);
-                }
-                catch (HttpRequestException ex)
-                {
-                    return null;
-                }
+                return result.Data;
             }
+
+            return null;
         }
 
         protected override async void OnCreate(Bundle bundle)
@@ -58,20 +48,26 @@ namespace EHome
 
             button.Click += delegate
             {
-                var msg = new byte[2];
-                msg[0] = 1;
-                msg[1] = 0;
-                _client.Publish("esp1", msg);
+                var msg = new byte[5];
+                msg[0] = 12;
+                msg[1] = 1;
+                msg[2] = 1;
+                msg[3] = 1;
+                msg[4] = 0;
+                _client.Publish("eventbus", msg);
             };
 
             Button button1 = FindViewById<Button>(Resource.Id.OffBtn);
 
             button1.Click += delegate
             {
-                var msg = new byte[2];
-                msg[0] = 1;
+                var msg = new byte[5];
+                msg[0] = 12;
                 msg[1] = 1;
-                _client.Publish("esp1", msg);
+                msg[2] = 1;
+                msg[3] = 1;
+                msg[4] = 1;
+                _client.Publish("eventbus", msg);
             };
 
             var domain = await GetIpAddressInfo();
@@ -80,15 +76,12 @@ namespace EHome
                 var ips = domain.Address.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                 _client = new MqttClient(ips[0]);
                 _client.Connect("console");
-                if (_client.IsConnected)
-                {
-                    Toast.MakeText(ApplicationContext, "Ready to use", ToastLength.Long);
-                }
-                else
-                {
-                    Toast.MakeText(ApplicationContext, "Check network again", ToastLength.Long);
-                }
             }
+
+            FragmentTransaction fragmentTx = this.FragmentManager.BeginTransaction();
+            var relay = new Relay();
+            fragmentTx.Add(Resource.Id.linearLayout1, relay);
+            fragmentTx.Commit();
         }
 
         public class Domain

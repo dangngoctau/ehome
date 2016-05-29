@@ -1,9 +1,12 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using EHome.Common;
 using uPLibrary.Networking.M2Mqtt;
+using uPLibrary.Networking.M2Mqtt.Exceptions;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
 namespace EHome.Core
@@ -19,9 +22,27 @@ namespace EHome.Core
             _appSettings = appSettings;
             _eventHandlers = new ConcurrentDictionary<int, HomeControlAction>();
             _client = new MqttClient(_appSettings.BrokerAddress);
-            _client.Connect("eventbus");
-            _client.Subscribe(new[] { "eventbus" }, new[] { (byte)1 });
             _client.MqttMsgPublishReceived += _client_MqttMsgPublishReceived;
+            _client.ConnectionClosed += _client_ConnectionClosed;
+            StartClient();
+        }
+
+        private void _client_ConnectionClosed(object sender, EventArgs e)
+        {
+            StartClient();
+        }
+
+        private void StartClient()
+        {
+            try
+            {
+                _client.Connect("eventbus");
+                _client.Subscribe(new[] { "eventbus" }, new[] { (byte)1 });
+            }
+            catch (MqttConnectionException ex)
+            {
+                StartClient();
+            }
         }
 
         private async void _client_MqttMsgPublishReceived(object sender, MqttMsgPublishEventArgs e)
