@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5D958C5B-2290-440A-B600-C31C73F1CA41}</ProjectGuid>
+    <ProjectGuid>{E1847467-6A46-44C2-8953-ACC1ACE3EB03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EHome.Plugins.Esp</RootNamespace>
-    <AssemblyName>EHome.Plugins.Esp</AssemblyName>
+    <RootNamespace>EHome.Core.Api</RootNamespace>
+    <AssemblyName>EHome.Core.Api</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +33,10 @@
     <OutputPath>bin\Mono\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Nancy, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.1.4.3\lib\net40\Nancy.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,14 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EspPlugin.cs" />
+    <Compile Include="HomeModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DeviceViewModel.cs" />
+    <Compile Include="ViewModels\GroupViewModel.cs" />
+    <Compile Include="ViewModels\ModuleViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EHome.Core\EHome.Core.csproj">
-      <Project>{025cab23-9ccc-4953-b6fc-9a9a6512beeb}</Project>
-      <Name>EHome.Core</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\EHome.Storage\EHome.Storage.csproj">
       <Project>{34634c72-b258-4fc0-9f57-c03283e64154}</Project>
       <Name>EHome.Storage</Name>

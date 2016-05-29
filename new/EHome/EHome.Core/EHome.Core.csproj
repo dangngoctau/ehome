@@ -30,6 +30,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Mono|AnyCPU'">
+    <OutputPath>bin\Mono\</OutputPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="M2Mqtt.Net, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\M2Mqtt.4.3.0.0\lib\net45\M2Mqtt.Net.dll</HintPath>
@@ -45,12 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeviceType.cs" />
     <Compile Include="EventBus.cs" />
     <Compile Include="HomeControlEventArgs.cs" />
     <Compile Include="IEventBus.cs" />
     <Compile Include="IPlugin.cs" />
     <Compile Include="IPluginHandler.cs" />
-    <Compile Include="IRequest.cs" />
     <Compile Include="PluginHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

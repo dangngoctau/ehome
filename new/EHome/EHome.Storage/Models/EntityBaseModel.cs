@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EHome.Storage.Models
 {
-    public class Device
+    public abstract class EntityBaseModel
     {
         public int Id { get; set; }
     }

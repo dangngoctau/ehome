@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EHome.Core
+namespace EHome.Core.Api.ViewModels
 {
-    public interface IRequest
+    public class DeviceViewModel
     {
     }
 }

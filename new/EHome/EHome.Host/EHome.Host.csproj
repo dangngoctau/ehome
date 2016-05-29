@@ -32,6 +32,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Mono|AnyCPU'">
+    <OutputPath>bin\Mono\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Nancy, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nancy.1.4.3\lib\net40\Nancy.dll</HintPath>
@@ -65,6 +70,10 @@
     <ProjectReference Include="..\EHome.Common\EHome.Common.csproj">
       <Project>{a622981a-6897-4a75-89d3-fdeac5faa9e9}</Project>
       <Name>EHome.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EHome.Core.Api\EHome.Core.Api.csproj">
+      <Project>{e1847467-6a46-44c2-8953-acc1ace3eb03}</Project>
+      <Name>EHome.Core.Api</Name>
     </ProjectReference>
     <ProjectReference Include="..\EHome.Core\EHome.Core.csproj">
       <Project>{025cab23-9ccc-4953-b6fc-9a9a6512beeb}</Project>

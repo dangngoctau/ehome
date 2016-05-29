@@ -14,14 +14,7 @@ namespace EHome.Host
         static void Main(string[] args)
         {
             var container = TinyIoCContainer.Current;
-            if(Type.GetType("Mono.Runtime") == null)
-            {
-                container.Register<IDbConnectionSelection, WindowsDbConnectionSelection>().AsSingleton();
-            }
-            else
-            {
-                container.Register<IDbConnectionSelection, MonoDbConnectionSelection>().AsSingleton();
-            }
+            container.Register<IDbConnectionSelection, DbConnectionSelection>();
             container.Register<IAppSettings, AppSettings>().AsSingleton();
             container.Register<IPluginHandler, PluginHandler>().AsSingleton();
             container.Register<IEventBus, EventBus>().AsSingleton();

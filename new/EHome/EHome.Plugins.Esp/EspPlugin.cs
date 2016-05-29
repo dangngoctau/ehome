@@ -1,10 +1,14 @@
-﻿using EHome.Core;
+﻿using System.Threading.Tasks;
+using EHome.Core;
 using EHome.Storage;
 
 namespace EHome.Plugins.Esp
 {
     public class EspPlugin : IPlugin
     {
+        private const string PluginPrefix = "esp";
+        private const int PluginId = 12;
+
         private readonly IEventBus _eventBus;
         private readonly IEHomeService _eHomeService;
 
@@ -16,15 +20,23 @@ namespace EHome.Plugins.Esp
 
         public void Init()
         {
-            _eventBus.Subscribe(12, Execute);
+            _eventBus.Subscribe(PluginId, Execute);
         }
 
-        private void Execute(HomeControlEventArgs obj)
+        private async Task Execute(HomeControlEventArgs eventArgs)
         {
-            _eHomeService.GetDevices();
-            // publish event to Esp12
-            _eventBus.Publish("esp" + obj.ModuleId, new byte[1] { 0 });
-            // todo: store state to db.
+            switch (eventArgs.DeviceType)
+            {
+                case DeviceType.Relay:
+                    // Publish event to module esp<number-one-byte>
+                    var msg = new byte[eventArgs.Data.Length + 1];
+                    msg[0] = eventArgs.DeviceId;
+                    eventArgs.Data.CopyTo(msg, 1);
+                    _eventBus.Publish(PluginPrefix + eventArgs.ModuleId, msg);
+                    break;
+            }
+
+            await _eHomeService.UpdateDeviceStateAsync(eventArgs.DeviceId, System.Text.Encoding.ASCII.GetString(eventArgs.Data));
         }
     }
 }

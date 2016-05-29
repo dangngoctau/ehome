@@ -2,8 +2,9 @@
 {
     public class HomeControlEventArgs
     {
-        public short ModuleId { get; set; }
-        public short DeviceId { get; set; }
-        public short State { get; set; }
+        public byte ModuleId { get; set; }
+        public byte DeviceId { get; set; }
+        public DeviceType DeviceType { get; set; }
+        public byte[] Data { get; set; }
     }
 }
