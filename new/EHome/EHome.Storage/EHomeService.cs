@@ -68,7 +68,9 @@ namespace EHome.Storage
                 {
                     var vm = new GroupDeviceViewModel
                     {
-                        Group = group
+                        Id = group.Id,
+                        Code = group.Code,
+                        Description = group.Description
                     };
 
                     foreach (var device in devices)
@@ -79,10 +81,21 @@ namespace EHome.Storage
 
                         var dvm = new DeviceViewModel
                         {
-                            Device = device,
-                            Module = md,
-                            Properties = deviceProperties
+                            Id = device.Id,
+                            Code = device.Code
                         };
+
+                        foreach(var property in deviceProperties)
+                        {
+                            var selectedState = states.FirstOrDefault(c => c.DeviceId == device.Id && c.PropertyId == property.Id);
+                            dvm.States.Add(new DeviceStateViewModel
+                            {
+                                Id = property.Id,
+                                Code = property.Code,
+                                Description = property.Description,
+                                Value = selectedState == null ? null : selectedState.Value
+                            });
+                        }
                         vm.Devices.Add(dvm);
                     }
 

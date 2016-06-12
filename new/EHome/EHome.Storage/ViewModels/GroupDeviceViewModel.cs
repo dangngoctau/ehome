@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using EHome.Storage.Models;
 
 namespace EHome.Storage.ViewModels
 {
@@ -11,7 +10,9 @@ namespace EHome.Storage.ViewModels
             Devices = new Collection<DeviceViewModel>();
         }
 
-        public GroupModel Group { get; set; }
+        public int Id { get; set; }
+        public string Code { get; set; }
+        public string Description { get; set; }
         public ICollection<DeviceViewModel> Devices { get; set; }
     }
 }

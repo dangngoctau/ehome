@@ -1,12 +1,17 @@
 ﻿using System.Collections.Generic;
-using EHome.Storage.Models;
+using System.Collections.ObjectModel;
 
 namespace EHome.Storage.ViewModels
 {
     public class DeviceViewModel
     {
-        public DeviceModel Device { get; set; }
-        public IEnumerable<PropertyModel> Properties { get; set; }
-        public ModuleModel Module { get; set; }
+        public DeviceViewModel()
+        {
+            States = new Collection<DeviceStateViewModel>();
+        }
+
+        public int Id { get; set; }
+        public string Code { get; set; }
+        public ICollection<DeviceStateViewModel> States { get; set; }
     }
 }
