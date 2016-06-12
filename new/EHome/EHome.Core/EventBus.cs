@@ -53,14 +53,14 @@ namespace EHome.Core
                     var channel = e.Message[0];
                     var moduleId = e.Message[1];
                     var deviceId = e.Message[2];
-                    var deviceType = (DeviceType)e.Message[3];
+                    var propertyType = e.Message[3];
                     var data = e.Message.Skip(4).ToArray();
 
                     var eventArgs = new HomeControlEventArgs
                     {
                         ModuleId = moduleId,
                         DeviceId = deviceId,
-                        DeviceType = deviceType,
+                        PropertyType = propertyType,
                         Data = data
                     };
                     foreach (var handler in _eventHandlers)

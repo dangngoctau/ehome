@@ -25,16 +25,11 @@ namespace EHome.Plugins.Esp
 
         private async Task Execute(HomeControlEventArgs eventArgs)
         {
-            switch (eventArgs.DeviceType)
-            {
-                case DeviceType.Relay:
-                    // Publish event to module esp<number-one-byte>
-                    var msg = new byte[eventArgs.Data.Length + 1];
-                    msg[0] = eventArgs.DeviceId;
-                    eventArgs.Data.CopyTo(msg, 1);
-                    _eventBus.Publish(PluginPrefix + eventArgs.ModuleId, msg);
-                    break;
-            }
+            var msg = new byte[eventArgs.Data.Length + 2];
+            msg[0] = eventArgs.DeviceId;
+            msg[1] = eventArgs.PropertyType;
+            eventArgs.Data.CopyTo(msg, 2);
+            _eventBus.Publish(PluginPrefix + eventArgs.ModuleId, msg);
 
             await _eHomeService.UpdateDeviceStateAsync(eventArgs.DeviceId, System.Text.Encoding.ASCII.GetString(eventArgs.Data));
         }

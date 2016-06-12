@@ -91,8 +91,8 @@ namespace EHome.Storage
                             dvm.States.Add(new DeviceStateViewModel
                             {
                                 Id = property.Id,
-                                Code = property.Code,
-                                Description = property.Description,
+                                PropertyType = property.Type,
+                                Property = property.Description,
                                 Value = selectedState == null ? null : selectedState.Value
                             });
                         }
